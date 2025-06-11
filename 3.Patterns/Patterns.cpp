@@ -431,5 +431,163 @@
 //     return 0;
 // }
 
-//! (19)
+//! (19)                       stars,   spaces    , stars
+//? **********                   5        0           5
+//? ****  ****                   4        2           4
+//? ***    ***                   3        4           4
+//? **      **                   and so on we calculate.....
+//? *        *                   then we think the logic to match things
+//? *        *                   accordingly
+//? **      **                   DRY RUN helps
+//? ***    ***
+//? ****  ****
+//? **********
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n;
+//     cin >> n;
+//     for(int i=1;i<=n;i++){
+//         //* stars
+//         for(int j=1;j<=n-i+1;j++){
+//             cout << "*";
+//         }
+//         //* spaces
+//         int spaces = 2*(i-1);
+//         for(int j=1; j<=spaces; j++){
+//             cout << " ";
+//         }
+//         //* stars
+//         for(int j=n-i+1; j>=1; j--){
+//             cout << "*";
+//         }
+//         cout << endl;
+//     }
+//     for(int i=n;i>=1;i--){
+//         //* stars
+//         for(int j=1; j<=n-i+1; j++){
+//             cout << "*";
+//         }
+//         //* spaces
+//         int spaces = 2*(i-1);
+//         for(int j=1; j<=spaces; j++){
+//             cout << " ";
+//         }
+//         //* stars
+//         for(int j=n-i+1; j>=1; j--){
+//             cout << "*";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
 
+//! (20)
+//? *        *
+//? **      **
+//? ***    ***
+//? ****  ****
+//? **********
+//? ****  ****
+//? ***    ***
+//? **      **
+//? *        *
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n;
+//     cin >> n;
+//     for(int i=1;i<=n;i++){
+//         //* stars
+//         for(int j=1;j<=i;j++){
+//             cout << "*";
+//         }
+//         //* spaces
+//         int spaces = 2*(n-i);
+//         for(int j=1;j<=spaces;j++){
+//             cout << " ";
+//         }
+//         //* stars
+//         for(int j=i;j>=1;j--){
+//             cout << "*";
+//         }
+//         cout << endl;
+//     }
+//     for(int i=n-1;i>=1;i--){
+//         //* stars
+//         for(int j=1;j<=i;j++){
+//             cout << "*";
+//         }
+//         //* spaces
+//         int spaces = 2*(n-i);
+//         for(int j=1;j<=spaces;j++){
+//             cout << " ";
+//         }
+//         //* stars
+//         for(int j=i;j>=1;j--){
+//             cout << "*";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+//! (21)
+//? *****
+//? *   *
+//? *   *
+//? *   *
+//? *****
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n;
+//     cin >> n;
+//     for(int i=1;i<=n;i++){
+//         for(int j=1;j<=n;j++){
+//             if(i==1 || j==1 || i==n || j==n){
+//                 cout << "*";
+//             }
+//             else{
+//                 cout << " ";
+//             }
+//         }
+//         cout << endl;
+//     }
+// }
+
+//! (22)
+//* 4 4 4 4 4 4 4
+//* 4 3 3 3 3 3 4
+//* 4 3 2 2 2 3 4
+//* 4 3 2 1 2 3 4
+//* 4 3 2 2 2 3 4
+//* 4 3 3 3 3 3 4
+//* 4 4 4 4 4 4 4
+
+//! n - val = new matrix
+//? 0 0 0 0 0 0 0
+//? 0 1 1 1 1 1 0
+//? 0 1 2 2 2 1 0
+//? 0 1 2 3 2 1 0
+//? 0 1 2 2 2 1 0
+//? 0 1 1 1 1 1 0
+//? 0 0 0 0 0 0 0 
+//! n - new matrix val = val
+#include<iostream>
+using namespace std;
+int main(){
+    int n;
+    cin >> n;
+    for(int i=0; i<2*n-1;i++){
+        for(int j=0; j<2*n-1;j++){
+            int top = i;              //* these four are the distances from an val to access
+            int left = j;
+            int right = (2*n-2) - j;
+            int down = (2*n-2) - i;
+            cout << (n -min(min(top,down), min(left,right)));
+        }
+        cout << endl;
+    }
+    return 0;
+}
