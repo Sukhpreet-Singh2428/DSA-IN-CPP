@@ -401,7 +401,7 @@
 //     //? rest all functions are same as above
 //     //? it does not stores in any particular oder 
 //     //? it has a better complexity than set in most cases, except some when collision happens
-//     //* Time complexity --> all the operations are generally in O(1) - constant time and worst case ever happen has O(N)
+//     //* Time complexity --> all the operations are generally in O(1) - constant time and rarely worst case ever happen has O(N)
 // }
 // int main(){
 //     explainUSet();
@@ -457,3 +457,42 @@
 //     explainMap();
 //     return 0;
 // }
+
+
+//! Multimap   -->  #include<map>
+//? A multimap in C++ is an associative container from the Standard Template Library (STL) 
+//? that stores key-value pairs, allowing multiple values for the same key. 
+//? This distinguishes it from std::map, which only allows unique keys
+
+//? Duplicate Keys Allowed: Multiple entries can have the same key.
+//? Sorted Order: Keys are always kept sorted (ascending by default).
+
+// #include<iostream>
+// #include<map>
+// using namespace std;
+// void explainMultimap(){
+//     //* everything same as map, only it can store multiple keys
+//     //* ony mpp[key] cannot be used here
+// }
+// int main(){
+//     explainMultimap();
+//     return 0;
+// }
+
+//! unordered map   --> #include<unordered_map>
+//? An unordered map in C++ is an associative container that stores key-value pairs, 
+//? where each key is unique. Unlike std::map, the elements in an unordered map 
+//? are not stored in any particular order.
+
+// #include<iostream>
+// #include<unordered_map>
+// using namespace std;
+// void explainUnorderedMap(){
+//     //* same as set and unordered_set difference.
+// }
+// int main(){
+//     explainUnorderedMap();
+//     return 0;
+// }
+
+//* Map --> logN  and unordered_map --> O(1) - constant time and in worst even (rarely ever will be happen) O(N)
