@@ -252,13 +252,208 @@
 //? A priority queue is a specialized data structure where each element has a priority,
 //? and elements are served based on their priority rather than their insertion order.
 
-#include<iostream>
-#include<queue>
-using namespace std;
-void explainPQ(){
+// #include<iostream>
+// #include<queue>
+// using namespace std;
+// void explainPQ(){
+    //* Maximum Heap
+    // priority_queue<int> pq;
+    // pq.push(5);  //? {5}
+    // pq.push(2);  //? {5,2}
+    // pq.push(8);  //? {8,5,2}
+    // pq.emplace(10);  //? {10,8,5,2}
+
+    // cout << pq.top();  //? prints 10
+
+    // pq.pop();   //? {8,5,2}
+
+    // cout << pq.top();  //? prints 8
+
+    //* size, swap, empty function same as other
+
+    //* Minimum Heap
+    // priority_queue<int, vector<int>, greater<int>> pq;
+    // pq.push(5);  //? {5}
+    // pq.push(2);  //? {2,5}
+    // pq.push(8);  //? {2,5,8}
+    // pq.push(10);  //? {2,5,8,10}
+
+    // cout << pq.top();  //? prints 2
+// }
+// int main(){
+//     explainPQ();
+//     return 0;
+// }
+
+//* Time complexity :
+//* push --> logN
+//* top --> o(1)
+//* pop --> logN
+
+
+//! Set   --> #include<set>
+//? A set in C++ is a Standard Template Library (STL) container that 
+//? stores unique elements in a sorted order. Sets are particularly useful 
+//? when you need to maintain a collection of distinct items and require fast lookups, insertions, and deletions
+
+// #include<iostream>
+// #include<set>
+// using namespace std;
+// void explainSet(){
+    // set<int> st;
+    // st.insert(1);    //? {1}
+    // st.emplace(2);   //? {1,2}
+    // st.insert(2);    //? {1,2}
+    // st.insert(4);    //? {1,2,4}
+    // st.insert(3);    //? {1,2,3,4}
+
+    //? Functionality of insert in vector
+    //? can be used also, that only increases efficiency 
+
+    //? begin(), end(), rbegin(), rend(), size(), empty(), and 
+    //? swap() are same as those of above
+
+    //* {1,2,3,4,5}
+    // auto it = st.find(3);   //? --> returns iterator which points to the 3
     
-}
-int main(){
-    explainPQ();
-    return 0;
-}
+    //* {1,2,3,4,5}
+    // auto it = st.find(6);   //? --> if the element is not in the set, always returns the st.end()
+
+    //* {1,4,5}
+    // st.erase(5);    //? erases 5   // takes logarithmic time
+
+    // int cnt = st.count(1);   //? we know that set has unique elements and in sorted order. So if element exits return 1 or not then return 0. 
+                                //? As distinct elements only come 1 time in set if prsent.
+
+    // auto it = st.find(3);
+    // st.erase(it);   //* erase can take both element or iterator   // it takes constant time
+
+    //* {1,2,3,4,5}
+    // auto it1 = st.find(2);
+    // auto it2 = st.find(4);
+    // st.erase(it1, it2);     //? after erase {1,4,5}   <-- erase[start, end)
+
+    //? lower_bound() and upper_bound() function works in the same way
+    //? as in vector it does.
+
+    //? This is the synatx
+    // auto it = st.lower_bound(2);
+
+    // auto it = st.upper_bound(3);
+
+    //* std::lower_bound(first, last, val)
+    //* Returns an iterator to the first element in [first, last) that is not less than val (i.e., >= val).
+    //* Example: For {1, 2, 2, 3, 4}, lower_bound(2) points to the first 2.
+
+    //* std::upper_bound(first, last, val)
+    //* Returns an iterator to the first element in [first, last) that is greater than val.
+    //* Example: For {1, 2, 2, 3, 4}, upper_bound(2) points to 3.
+
+    //? Function	         Behavior	         Example for {1, 2, 2, 3, 4}
+    //? lower_bound(2)	  First element >= 2	 Points to first 2 (index 1)
+    //? upper_bound(2)	  First element > 2	     Points to 3 (index 3)
+// }
+// int main(){
+//     explainSet();
+//     return 0;
+// }
+
+
+//! MultiSet    --> #include<set>
+//* Everything is same as set
+//* only stores duplicate elements also
+
+// #include<iostream>
+// #include<set>
+// using namespace std;
+// void explainMultiSet(){
+//     multiset<int> ms;
+    // ms.insert(1);    //? {1}
+    // ms.insert(1);    //? {1,1}
+    // ms.insert(1);    //? {1,1,1}
+
+    // ms.erase(1);    //* all 1's erased
+
+    // int cnt = ms.count(1);   //* gives the count of 1's in the multiset
+
+    //* only a single one erased
+    // ms.erase(ms.find(1));
+    
+    //* rest all functions same as set
+// }
+// int main(){
+//     explainMultiSet();
+//     return 0;
+// }
+
+
+//! unordered set   --> #include<unordered_set>
+//? An unordered set in C++ is an associative container provided by the Standard Template Library (STL) 
+//? that stores unique elements, but does not keep them sorted. Instead, it uses a hash table 
+//? for fast average-case operations.
+
+// #include<iostream>
+// #include<unordered_set>
+// using namespace std;
+// void explainUSet(){
+//     unordered_set<int> st;
+//     //? lower_bound and upper_bound function does not works
+//     //? rest all functions are same as above
+//     //? it does not stores in any particular oder 
+//     //? it has a better complexity than set in most cases, except some when collision happens
+//     //* Time complexity --> all the operations are generally in O(1) - constant time and worst case ever happen has O(N)
+// }
+// int main(){
+//     explainUSet();
+//     return 0;
+// }
+
+//! Map   -->  #include<map>
+//? A map in C++ is an associative container from the Standard Template Library (STL) 
+//? that stores elements as key-value pairs. Each key in a map is unique, 
+//? and values are accessed using these keys rather than by index
+
+//? Unique Keys: Each key in a map is unique—no duplicates allowed.
+//? Key-Value Pairs: Each element is stored as a pair: (key, value).
+//? Sorted Order: Elements are automatically sorted by their keys in ascending order by default.
+
+// #include<iostream>
+// #include<map>
+// using namespace std;
+// void explainMap(){
+//     map<int, int> mpp;
+
+    // map<int, pair<int, int>> mpp;
+
+    // map< pair<int, int>, int> mpp;
+
+    // mpp[1] = 2;   //? {1,2} for key 1 --< value 2
+    // mpp.emplace(3,1);
+    // mpp.insert({2,4});
+
+    // mpp[{2,3}] = 10;  //? this is for map declaration like --> map< pair<int, int>, int> mpp;
+
+    //? mpp = [ {1,2}, {2,4}, {3,1} ]
+    // for(auto it : mpp){
+    //     cout << it.first << " " << it.second << endl;   //? for loop in mpp, their are like pairs also use mpp.first and mpp.second, also can use like for loop starts with begin() and then it++ just like vectors
+    // }
+
+    // cout << mpp[1];   //? print 2
+    // cout << mpp[5];   //? print 0 as there is no 5 in map
+
+    // auto it = mpp.find(3);  //? --> {3,1}
+    // cout << (*it).second;
+
+    // auto it = mpp.find(5);  //? 5 key and key value pair not exists, so return mpp.end()
+
+    //? This is the syntax
+    // auto it = mpp.lower_bound(2);
+
+    // auto it = mpp.upper_bound(3);
+
+    //? erase, swap, size, empty, are same as above
+// }
+// int main(){
+//     explainMap();
+//     return 0;
+// }
