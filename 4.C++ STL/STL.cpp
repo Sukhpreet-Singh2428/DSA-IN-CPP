@@ -496,3 +496,101 @@
 // }
 
 //* Map --> logN  and unordered_map --> O(1) - constant time and in worst even (rarely ever will be happen) O(N)
+
+
+//! Algorithms   --> #include<algorithm>
+
+#include<algorithm>  //? <-- sort
+#include<iostream>
+#include<vector>
+#include<utility>
+#include<string>
+using namespace std;
+bool comp(pair<int, int> p1, pair<int, int> p2){  //* Function of Sort it in my owm way !!
+    if(p1.second < p2.second) return true;
+    if(p1.second > p2.second)  return false;
+    //? they are same
+
+    if(p1.first > p2.first) return true;
+    return false;
+}
+void explainExtra(){
+    //* Array
+    // int a[] = {1,5,3,2};
+    // sort(a, a+4);       //* sort(a, a+n) <-- Array  --> sort[start, end)
+    // for(int i=0; i<4; i++){
+    //     cout << a[i] << " ";
+    // }
+    // sort(a+2, a+4);        //* sort(a+2, a+4)  <-- Particular part sort
+    // for(int i=0; i<4; i++){
+    //     cout << a[i] << " ";
+    // }
+    // sort(a, a+4, greater<int>());  //* sort(a, a+n, greater<int>());  <-- This will sort the array in descending order.
+    // for(int i=0; i<4; i++){
+    //     cout << a[i] << " ";
+    // }
+
+    //* Vector
+    // vector<int> v = {1,5,3,2};
+    // sort(v.begin(), v.end());   //*  sort(v.begin(), v.end())
+    // for(auto it : v){
+    //     cout << it << " ";
+    // }
+    // sort(v.begin()+2, v.end());  //*  sort(v.begin()+2, v.end());  <-- Particular part sort
+    // for(auto it : v){
+    //     cout << it << " ";
+    // }
+    // sort(v.begin(), v.end(), greater<int>());  //* sort(v.begin(), v.end(), greater<int>());  <-- Sorts vector in descending order
+    // for(auto it : v){
+    //     cout << it << " ";
+    // }
+
+    //* sorting will be in ascending or descending order
+    //* what if i want to sort in my way !! Sort in my own way other than ascending or descending.
+
+    // pair<int, int> a[] = {{1,2}, {2,1}, {4,1}};
+
+    //? sort it according to second element   --> {{2,1}, {4,1}, {1,2}}  sorted according to second elements in ascending 
+    //? if second element is same, then sort  --> now we can see that there are same second elements 1 and 1
+    //? it according to first element but in descending  --> {{4,1}, {2,1}, {1,2}} sorted in descending according to first elements
+
+    // sort(a, a+3, comp);  //* sort(a, a+n, comp)   comp --> function
+    // for(int i=0; i<3; i++){
+    //     cout << a[i].first << " " << a[i].second << endl;  //* -->  {{4,1}, {2,1}, {1,2}}
+    // }
+
+
+    // int num = 7;
+    // int cnt = __builtin_popcount(num);  //* it returns the how many 1's are there in binary of num
+    // cout << cnt;
+    
+    // long long num = 165786578687;
+    // int cnt = __builtin_popcountll(num);   //* for long long number
+    // cout << cnt;
+
+
+    // string s = "123";
+    // sort(s.begin(), s.end());  //* for next_permutation, string should be sorted
+    // do{
+    //     cout << s << endl;
+    // } while(next_permutation(s.begin(), s.end()));
+
+
+    //* In Array
+    // int arr[] = {1,10,5,6};
+    // int maxi = *max_element(arr, arr+4);  //* for Maximum element in array
+    // cout << maxi << endl;
+    // int mini = *min_element(arr, arr+4);  //* for Minimum element in array
+    // cout << mini << endl;
+
+    //* In Vector
+    vector<int> v = {1,10,5,6};
+    int maxi = *max_element(v.begin(), v.end());
+    cout << maxi << endl;
+    int mini = *min_element(v.begin(), v.end());
+    cout << mini << endl;
+}
+int main(){
+    explainExtra();
+    return 0;
+}
